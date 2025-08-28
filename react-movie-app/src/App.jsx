@@ -5,7 +5,7 @@ import MovieCard from './components/MovieCard.jsx'
 import { useDebounce } from 'react-use'
 import { getTrendingMovies, updateSearchCount } from './appwrite.js'
 
-const API_BASE_URL = 'https://api.themoviedb.org/3/discover/movie';
+const API_BASE_URL = 'https://api.themoviedb.org/3';
 
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 
@@ -18,7 +18,7 @@ const API_OPTIONS = {
 }
 
 const App = () => {
-  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('')
   const [searchTerm, setSearchTerm] = useState('');
 
   const [movieList, setMovieList] = useState([]);
@@ -56,7 +56,7 @@ const App = () => {
 
       setMovieList(data.results || []);
 
-      if (query && data.results.length > 0) {
+      if(query && data.results.length > 0) {
         await updateSearchCount(query, data.results[0]);
       }
     } catch (error) {
@@ -87,7 +87,7 @@ const App = () => {
 
   return (
     <main>
-      <div className="pattern" />
+      <div className="pattern"/>
 
       <div className="wrapper">
         <header>
